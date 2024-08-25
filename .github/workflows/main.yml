@@ -1,0 +1,26 @@
+name: Postman Tests to TestRail
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  run-postman-collection:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18'
+
+    - name: Install Newman
+      run: npm install -g newman
+
+    - name: Run Postman Collection
+      run: newman run <path_to_your_postman_collection.json -r json --reporter-json-export newman-report.json
