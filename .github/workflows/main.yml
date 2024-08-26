@@ -23,4 +23,4 @@ jobs:
       run: npm install -g newman
 
     - name: Run Postman Collection
-      run: newman run ../PostMan/New Collection.postman_collection.json -r json --reporter-json-export newman-report.json
+      run: newman run "../PostMan/New Collection.postman_collection.json" -r json --reporter-json-export newman-report.json
