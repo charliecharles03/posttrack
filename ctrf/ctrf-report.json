@@ -1,0 +1,26 @@
+{
+  "results": {
+    "tool": {
+      "name": "newman"
+    },
+    "summary": {
+      "tests": 1,
+      "passed": 1,
+      "failed": 0,
+      "pending": 0,
+      "skipped": 0,
+      "other": 0,
+      "start": 1728757775495,
+      "stop": 1728757776289
+    },
+    "tests": [
+      {
+        "name": "C1 Status code is 200 for this requestß",
+        "status": "passed",
+        "duration": 746,
+        "suite": "demo > New Request"
+      }
+    ]
+  }
+}
+
