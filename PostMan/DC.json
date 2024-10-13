@@ -49,7 +49,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://dogapi.dog/api/v2/bred",
+					"raw": "https://dogapi.dog/api/v2/breeds",
 					"protocol": "https",
 					"host": [
 						"dogapi",
@@ -58,7 +58,7 @@
 					"path": [
 						"api",
 						"v2",
-						"bred"
+						"breeds"
 					]
 				}
 			},
