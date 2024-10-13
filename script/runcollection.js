@@ -20,7 +20,7 @@ const suiteId = "1";
 
 // Create json file with Postman collection and environment
 
-function runPostmanCollection() {
+async function runPostmanCollection() {
   return new Promise((resolve, reject) => {
     newman.run({
       collection:('./PostMan/DC.json'),
@@ -123,7 +123,7 @@ async function sendResultsToTestRail(testRunId, results) {
 
 (async function main() {
     try{
-        runPostmanCollection();
+        await runPostmanCollection();
         const testRunId = await createTestRun();   // extract new testid
         var result  = await extractResults();   // extract results
         console.log("result",result);           
