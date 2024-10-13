@@ -27,7 +27,7 @@ function runPostmanCollection() {
       reporters: ['cli','ctrf-json'],
       reporter: {
         json: {
-          export: './report.json'
+          export: './ctrf/ctrf-report.json'
         }
       }
     }, (err) => {
