@@ -1,26 +1,30 @@
-name: Postman Tests to TestRail
+name: Run Postman Tests and Send Results to TestRail
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
+  workflow_dispatch:
 
 jobs:
-  run-postman-collection:
+  postman-testrail:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Install Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '18'
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
 
-    - name: Install Newman
-      run: npm install -g newman
+      - name: Install dependencies
+        run: npm install newman axios
 
-    - name: Run Postman Collection
-      run: newman run "../PostMan/New Collection.postman_collection.json" -r json --reporter-json-export newman-report.json
+      - name: Run Node.js script
+        run: |
+          node script/runcollection.js
+        env:
+          TESTRAIL_URL: ${{ secrets.TESTRAIL_URL }}
+          TESTRAIL_USER: ${{ secrets.TESTRAIL_USER }}
+          TESTRAIL_API_KEY: ${{ secrets.TESTRAIL_API_KEY }}
+          PROJECT_ID: ${{ secrets.PROJECT_ID }}
+          SUITE_ID: ${{ secrets.SUITE_ID }}
