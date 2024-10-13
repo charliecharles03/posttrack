@@ -23,7 +23,7 @@ const suiteId = "1";
 function runPostmanCollection() {
   return new Promise((resolve, reject) => {
     newman.run({
-      collection:('../PostMan/New Collection.postman_collection.json'),
+      collection:('../PostMan/DC.json'),
       reporters: ['cli','ctrf-json'],
       reporter: {
         json: {
